@@ -13,7 +13,11 @@ app.get("/blog", function(require, response){
 app.get("/canal/youtube", function(require, response){
     response.send("Bem vindo ao meu Canal");
 });
-   
+ 
+app.get("/ola/:nome", function(require,response){
+    response.send("<h1>Oi!</h1>");
+});
+
 
 app.listen(4000, function(erro){
   if(erro){
