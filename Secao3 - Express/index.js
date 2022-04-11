@@ -16,8 +16,16 @@ app.get("/blog/:artigo?", function(require, response){
     
 });
 
+
+
 app.get("/canal/youtube", function(require, response){
-    response.send("Bem vindo ao meu Canal");
+    var canal = require.query["canal"];
+    if(canal){
+        response.send(canal);
+    } else {
+        response.send("Nenhum canal fornecido!");
+    }
+    
 });
  
 app.get("/ola/:nome", function(require,response){
