@@ -6,8 +6,14 @@ app.get("/", function(require, response){
     response.send("<h1>Bem vindo a teste formação NODE<h1>");
    });
 
-app.get("/blog", function(require, response){
-    response.send("Bem vindo ao meu blog");
+app.get("/blog/:artigo?", function(require, response){
+    var artigo = require.params.artigo;
+    if(artigo){
+     response.send("Bem vindo ao meu blog");
+    } else {
+       response.send("Voce não está autorizado");
+    }
+    
 });
 
 app.get("/canal/youtube", function(require, response){
