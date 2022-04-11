@@ -3,7 +3,7 @@ const app = express();
 
 
 app.get("/", function(require, response){
-    response.send("Bem vindo a formação NODE");
+    response.send("<h1>Bem vindo a teste formação NODE<h1>");
    });
 
 app.get("/blog", function(require, response){
