@@ -15,7 +15,8 @@ app.get("/canal/youtube", function(require, response){
 });
  
 app.get("/ola/:nome", function(require,response){
-    response.send("<h1>Oi!</h1>");
+    let nome = require.params.nome;
+    response.send("<h1>Oi " + nome + " </h1>");
 });
 
 
