@@ -23,7 +23,7 @@ app.get("/canal/youtube", function(require, response){
     if(canal){
         response.send(canal);
     } else {
-        response.send("Nenhum canal fornecido!");
+        response.send("Nenhum canal fornecido!")
     }
     
 });
