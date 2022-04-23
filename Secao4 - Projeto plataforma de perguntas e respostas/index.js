@@ -5,7 +5,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get("/", (require, response) => {
-    response.send("Bem vindo ao meu site! *-*");
+    response.render("principal/perfil");
 });
 
 app.listen(8080,()=>{
