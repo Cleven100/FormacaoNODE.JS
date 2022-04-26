@@ -27,6 +27,13 @@
           
         <%
     } %>
+
+    <% products.forEach(produto => { %>
+        <%= produto.nome %> 
+        
+        <%= produto.preco %>
+        <hr>
+   <% }) %>
     
 </body>
 </html>
