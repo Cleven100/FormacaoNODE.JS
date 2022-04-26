@@ -9,6 +9,7 @@
   "author": "Cleven Nesello",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.6.1",
     "ejs": "^3.1.7",
     "express": "^4.17.3"
   }
