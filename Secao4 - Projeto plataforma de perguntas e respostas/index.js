@@ -1,19 +1,17 @@
 const express = require("express");
 const app = express();
 
-
-
-
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 app.get("/", (require, response) => {
-   
-
-    response.render("index");
+  response.render("index");
 });
 
-app.listen(8080,()=>{
-    console.log("APP rodando *---* !!!");
+app.get("/perguntar", (require, response) => {
+    response.render("perguntar");
 })
 
+app.listen(8080, () => {
+  console.log("APP rodando *---* !!!");
+});
