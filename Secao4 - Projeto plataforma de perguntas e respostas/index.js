@@ -3,6 +3,7 @@ const app = express();
 
 
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 app.get("/:nome/:lang", (require, response) => {
     var nome = require.params.nome;
