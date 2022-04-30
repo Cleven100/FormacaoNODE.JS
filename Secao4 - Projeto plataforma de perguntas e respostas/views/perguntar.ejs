@@ -11,9 +11,10 @@
           <h3>Realizar pergunta:</h3>
         </div>
         <div class="card-body">
-          <form action="">
+          <form action="/saveQuestion" method="POST">
             <label>Título</label>
             <input
+              name="title"
               type="text"
               placeholder="Title"
               class="form-control"
@@ -21,11 +22,12 @@
             />
             <label>Descrição</label>
             <textarea
+              name="description"
               placeholder="Descreva a sua pergunta aqui"
               class="form-control"
               style="margin: 0 0 10px 0"
             ></textarea>
-            <button class="btn btn-dark">Enviar</button>
+            <button class="btn btn-dark" type="submit">Enviar</button>
           </form>
         </div>
       </div>
