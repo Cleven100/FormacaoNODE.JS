@@ -23,7 +23,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 //rotas
 app.get("/", (require, response) => {
-  response.render("index");
+  Pergunta.findAll({ raw: true}).then(perguntas =>{
+    response.render("index",{
+      perguntas: perguntas
+    });
+  })
+  
 });
 
 app.get("/question", (require, response) => {
@@ -31,7 +36,7 @@ app.get("/question", (require, response) => {
 })
 
 app.post("/saveQuestion",(require, response) => {
-  
+
   let title = require.body.title;
   let description = require.body.description;
   
