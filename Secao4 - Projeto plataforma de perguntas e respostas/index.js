@@ -50,6 +50,21 @@ app.post("/saveQuestion",(require, response) => {
   })
 })
 
+app.get("/question/:id", (require, response) => {
+  let id = require.params.id;
+  Pergunta.findOne({
+    where: {
+      id:id
+    }
+  }).then(pergunta => {
+    if(pergunta != undefined){
+            response.render("pergunta");
+    } else {
+       response.redirect("/");
+    }
+  })
+})
+
 app.listen(8080, () => {
   console.log("APP rodando *---* !!!");
 });
