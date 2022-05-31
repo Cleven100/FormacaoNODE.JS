@@ -66,7 +66,19 @@ app.get("/question/:id", (require, response) => {
        response.redirect("/");
     }
   })
-})
+});
+
+app.post("/responder", (require,response) => {
+  let body = require.body.corpo;
+  let perguntaId = require.body.pergunta;
+
+  Resposta.create({
+    body: body,
+    perguntaId: perguntaId
+  }).then(() => {
+       response.redirect("/question/" + perguntaId);
+  }); 
+});
 
 app.listen(8080, () => {
   console.log("APP rodando *---* !!!");
