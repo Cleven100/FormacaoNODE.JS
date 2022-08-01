@@ -17,6 +17,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+
+
 //Database 
 connection
     .authenticate()
@@ -29,6 +31,9 @@ connection
 
 app.use("/", categoriesController);
 app.use("/", articlesController);  
+
+const Article = require("./articles/Article");
+const Caregory = require("./categories/Category")
 
 app.get("/", (require, response) => {
     response.render("index");
