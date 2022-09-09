@@ -31,5 +31,43 @@ router.get("/admin/categories", (require, response) => {
 });
 
 
+router.post("/categories/delete", (require, response) => {
+        var id = require.body.id;
+        if(id != undefined) {
+           
+           if(!isNaN(id)) {
+                   
+                Category.destroy({
+                    where: {
+                        id: id
+                    }
+                }).then(() => {
+                    response.redirect("/admin/categories");
+                })
+
+           } else {
+            response.redirect("/admin/categories");
+           }
+
+        } else {
+            response.redirect("/admin/categories");
+        }
+});
+
+
+router.get("/admin/categories/edit/:id", (require, response) => {
+    var id = require.params.id;
+    Category.findByPk(id).then(cetegories => {
+        if(categoria != undefined) {
+              
+            
+
+        } else {
+            response.redirect("/admin/categories");
+        }
+    }).catch(erro => {
+        response.redirect("/admin/categories");
+    })
+})
 
 module.exports = router;

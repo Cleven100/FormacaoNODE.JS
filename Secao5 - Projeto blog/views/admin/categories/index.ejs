@@ -4,6 +4,7 @@
       <div class="container">
         <hr>
          <h2>Categorias</h2>
+         <a class="btn btn-dark" href="/admin/categories/new">Nova categoria</a>
          <hr>
          <table class="table table-bordered">
              <thead>
@@ -21,7 +22,15 @@
                   <th><%= category.id %></th>
                   <th><%= category.title %></th>
                   <th><%= category.slug %></th>
-                  <th></th>
+                  <th>
+                    <button class="btn ">Editar</button>
+
+                    <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="confirmDelete(event, this)">
+                        <input type="hidden" name="id" value="<%= category.id %>">
+                        <button class="btn btn-danger">Deletar</button>
+                    </form>
+                    
+                  </th>
                </tr>
 
                 <% }) %>
@@ -31,4 +40,17 @@
       </div>
 
 
-    <%- include ('../../partials/footer.ejs') %>    
+    <%- include ('../../partials/footer.ejs') %>   
+    
+    
+    <script>
+  
+    function confirmDelete(e, form) {
+      e.preventDefault();
+      let value = confirm("Você quer deletar esta categoria? ");
+      if(value) {
+             form.submit();
+      } 
+    }
+
+    </script>
